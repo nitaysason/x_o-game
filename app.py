@@ -26,7 +26,7 @@ def check_winner():
     elif all(board[i][i] == 'O' for i in range(3)) or all(board[i][2 - i] == 'O' for i in range(3)):
         return 'O'
     
-    return None
+    # return None
    
 def main():
  current_player = 'X'
