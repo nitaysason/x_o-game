@@ -26,7 +26,12 @@ def check_winner():
     elif all(board[i][i] == 'O' for i in range(3)) or all(board[i][2 - i] == 'O' for i in range(3)):
         return 'O'
     
-    # return None
+    return None
+def is_board_full():
+    for row in board:
+        if ' ' in row:
+            return False  # If any cell is empty, the board is not full
+    return True
    
 def main():
  current_player = 'X'
@@ -45,7 +50,10 @@ def main():
             print_board()
             print(f'Player {winner} wins!')
             break
-        
+        elif is_board_full():
+                print_board()
+                print("It's a draw!")
+                break
         # Switch players
         current_player = 'O' if current_player == 'X' else 'X'
     else:
